@@ -4,6 +4,8 @@
 
 With this project I will attempt to build a web page/app without any html, css or JS. Instead I will build it with Google's Flutter framework and the Dart programming language.
 
+The source code is in the /lib folder
+Make sure to install dependencies in pubspec.yaml file if cloning.
 
 
 ## These are the steps I took for set up on a Windows machine.
@@ -27,9 +29,13 @@ https://flutter.dev/docs/get-started/install/windows
 https://flutter.dev/docs/get-started/web
 
 
-## To start a New Project
+## To start a New Project in VS Code
 
 1. Go to View -> Command Pallette OR Ctrl+Shift+P
 2. Type `Flutter: New Project`
 3. Enter Project name and it will prompt you to save it somewhere
-4. Your first flutter web app will be built. Yay!
+4. Flutter web app will be built. 
+5. flutter run -d chrome to run in browser
+
+
+https://flutter.dev/docs/get-started/web
