@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_experiment/project/project_item_body.dart';
 import 'package:flutter_web_experiment/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -44,7 +45,7 @@ class ProjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (_, size) {
-      if (size.isMobile) return ProjectMobileView();
+      if (size.isMobile || size.isTablet) return ProjectMobileView();
       return ProjectDesktopView();
     });
   }
@@ -73,51 +74,6 @@ class ProjectDesktopView extends StatelessWidget {
             children: [
               for (final item in kProjectItems)
                 Expanded(child: ProjectItemBody(item: item))
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class ProjectItemBody extends StatelessWidget {
-  const ProjectItemBody({
-    Key key,
-    @required this.item,
-  }) : super(key: key);
-
-  final ProjectItem item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(item.image),
-          SizedBox(height: 15),
-          Text(
-            item.title,
-            style: Theme.of(context).textTheme.headline4,
-          ),
-          SizedBox(height: 10),
-          Text(item.description, style: Theme.of(context).textTheme.bodyText1),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              for (final tech in item.technologies)
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Chip(
-                    label: Text(
-                      tech,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    backgroundColor: Theme.of(context).primaryColor,
-                  ),
-                ),
             ],
           )
         ],
