@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_experiment/header/header_view.dart';
 import 'package:flutter_web_experiment/navigation_bar/navigation_bar_view.dart';
+import 'package:flutter_web_experiment/project/project_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 void main() {
@@ -14,11 +16,34 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Web Experiment',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
-        primaryColor: Colors.cyan,
-        accentColor: Colors.pink[900],
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.cyan,
+          primaryColor: Colors.cyan,
+          accentColor: Colors.pink[900],
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: TextTheme(
+            headline1: GoogleFonts.montserrat(
+              fontSize: 60,
+              textStyle: TextStyle(color: Colors.white),
+            ),
+            headline2: GoogleFonts.montserrat(
+              fontSize: 60,
+              textStyle: TextStyle(color: Colors.black),
+            ),
+            headline3: GoogleFonts.montserrat(
+              fontSize: 60,
+              textStyle: TextStyle(color: Colors.pink[900]),
+            ),
+            headline4: GoogleFonts.montserrat(
+              fontSize: 30,
+              textStyle: TextStyle(color: Colors.cyan),
+            ),
+            bodyText1: GoogleFonts.montserrat(
+              textStyle: TextStyle(color: Colors.black),
+            ),
+            bodyText2: GoogleFonts.montserrat(
+              textStyle: TextStyle(color: Colors.white),
+            ),
+          )),
       home: WebView(),
     );
   }
@@ -27,9 +52,6 @@ class MyApp extends StatelessWidget {
 class WebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       endDrawer: DrawerView(),
       body: SingleChildScrollView(
@@ -37,7 +59,7 @@ class WebView extends StatelessWidget {
           children: [
             NavigationBarView(),
             HeaderView(),
-            Container(height: height, width: width, color: Colors.blue),
+            ProjectView(),
           ],
         ),
       ),

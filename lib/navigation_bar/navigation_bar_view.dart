@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_experiment/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavigationBarView extends StatelessWidget {
@@ -15,7 +16,7 @@ class NavigationBarView extends StatelessWidget {
               color: Theme.of(context).accentColor,
               child: Row(
                 children: [
-                  SizedBox(width: 20),
+                  SizedBox(width: kMobilePadding),
                   FlutterLogo(colors: Theme.of(context).primaryColor),
                   Spacer(),
                   IconButton(
@@ -31,7 +32,7 @@ class NavigationBarView extends StatelessWidget {
         return Container(
           height: 60,
           width: width,
-          padding: const EdgeInsets.symmetric(horizontal: 100.0),
+          padding: EdgeInsets.symmetric(horizontal: kDesktopPadding),
           color: Theme.of(context).accentColor,
           child: Row(
             children: [

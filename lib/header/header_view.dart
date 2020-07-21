@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_web_experiment/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HeaderView extends StatelessWidget {
@@ -21,7 +21,7 @@ class HeaderView extends StatelessWidget {
           width: width,
           color: Colors.black,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100.0),
+            padding: EdgeInsets.symmetric(horizontal: kDesktopPadding),
             child: Row(
               children: [
                 Expanded(
@@ -54,19 +54,13 @@ class HeaderBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AutoSizeText(
-          'Flutter Web Experiment',
-          style: GoogleFonts.montserrat(
-            fontSize: 60,
-            textStyle: TextStyle(color: Colors.white),
-          ),
+          'Flutter for the Web',
+          style: Theme.of(context).textTheme.headline1,
           maxLines: 2,
         ),
         AutoSizeText(
-          'by Freeda Moore',
-          style: GoogleFonts.montserrat(
-            fontSize: 60,
-            textStyle: TextStyle(color: Theme.of(context).accentColor),
-          ),
+          'an experiment',
+          style: Theme.of(context).textTheme.headline3,
           maxLines: 1,
         ),
         SizedBox(height: isMobile ?? false ? 20 : 40),
@@ -115,7 +109,7 @@ class HeaderMobileView extends StatelessWidget {
       height: height * 0.9,
       width: width,
       color: Colors.black,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+      padding: EdgeInsets.symmetric(horizontal: kMobilePadding, vertical: 40),
       child: Column(
         children: [
           Expanded(
