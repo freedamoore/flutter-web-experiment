@@ -29,6 +29,7 @@ class HeaderView extends StatelessWidget {
                 ),
                 FlutterLogo(
                   size: width * 0.4,
+                  colors: Theme.of(context).primaryColor,
                 )
               ],
             ),
@@ -64,7 +65,7 @@ class HeaderBody extends StatelessWidget {
           'by Freeda Moore',
           style: GoogleFonts.montserrat(
             fontSize: 60,
-            textStyle: TextStyle(color: Colors.redAccent[100]),
+            textStyle: TextStyle(color: Theme.of(context).accentColor),
           ),
           maxLines: 1,
         ),
@@ -81,7 +82,7 @@ class HeaderBody extends StatelessWidget {
                 Radius.circular(7),
               ),
             ),
-            color: Colors.redAccent[100],
+            color: Theme.of(context).primaryColor,
             onPressed: () {},
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -117,8 +118,12 @@ class HeaderMobileView extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
       child: Column(
         children: [
-          FlutterLogo(size: height * 0.3),
-          Spacer(),
+          Expanded(
+            child: FlutterLogo(
+              size: height * 0.3,
+              colors: Theme.of(context).primaryColor,
+            ),
+          ),
           HeaderBody(isMobile: true),
         ],
       ),

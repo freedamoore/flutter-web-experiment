@@ -12,14 +12,14 @@ class NavigationBarView extends StatelessWidget {
           return Container(
               height: 60,
               width: double.infinity,
-              color: Colors.redAccent[100],
+              color: Theme.of(context).accentColor,
               child: Row(
                 children: [
                   SizedBox(width: 20),
-                  FlutterLogo(),
+                  FlutterLogo(colors: Theme.of(context).primaryColor),
                   Spacer(),
                   IconButton(
-                    icon: Icon(Icons.menu),
+                    icon: Icon(Icons.menu, color: Colors.white),
                     onPressed: () => Scaffold.of(context).openEndDrawer(),
                   ),
                 ],
@@ -32,10 +32,10 @@ class NavigationBarView extends StatelessWidget {
           height: 60,
           width: width,
           padding: const EdgeInsets.symmetric(horizontal: 100.0),
-          color: Colors.redAccent[100],
+          color: Theme.of(context).accentColor,
           child: Row(
             children: [
-              FlutterLogo(),
+              FlutterLogo(colors: Theme.of(context).primaryColor),
               Spacer(),
               for (var item in kNavigationItems)
                 NavigationBarItem(onPressed: onPressed, text: item.text),
@@ -82,7 +82,7 @@ class NavigationBarItem extends StatelessWidget {
         highlightColor: Colors.transparent,
         child: Text(
           text,
-          style: TextStyle(fontSize: isSmall ? 16 : 18),
+          style: TextStyle(fontSize: isSmall ? 16 : 18, color: Colors.white),
         ),
       ),
     );

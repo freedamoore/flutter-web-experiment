@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Web Experiment',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.cyan,
+        primaryColor: Colors.cyan,
+        accentColor: Colors.pink[900],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: WebView(),
@@ -58,9 +60,10 @@ class DrawerView extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                child: Text('Menu'),
+                child: Text('Menu',
+                    style: TextStyle(color: Colors.white, fontSize: 24)),
                 decoration: BoxDecoration(
-                  color: Colors.redAccent[100],
+                  color: Theme.of(context).accentColor,
                 ),
               ),
               for (var item in kNavigationItems)
