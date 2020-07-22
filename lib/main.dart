@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_experiment/header/header_view.dart';
 import 'package:flutter_web_experiment/navigation_bar/navigation_bar_view.dart';
 import 'package:flutter_web_experiment/project/project_view.dart';
+import 'package:flutter_web_experiment/skills/skills_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -52,14 +53,18 @@ class MyApp extends StatelessWidget {
 class WebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // final ScrollController scrollController =
+    //     ScrollController(initialScrollOffset: 2000);
     return Scaffold(
       endDrawer: DrawerView(),
       body: SingleChildScrollView(
+        // controller: scrollController,
         child: Column(
           children: [
             NavigationBarView(),
             HeaderView(),
             ProjectView(),
+            SkillsView(),
           ],
         ),
       ),
