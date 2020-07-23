@@ -2,6 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_experiment/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_web_experiment/main.dart';
 
 class HeaderView extends StatelessWidget {
   const HeaderView({
@@ -49,6 +51,8 @@ class HeaderBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigationItems = context.watch<List<NavigationItem>>();
+    final scrollController = context.watch<ScrollController>();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +69,7 @@ class HeaderBody extends StatelessWidget {
         ),
         SizedBox(height: isMobile ?? false ? 20 : 40),
         AutoSizeText(
-          'My first attempt at building a responsive web app using Flutter and Dart.',
+          'My first attempt at building a responsive website using Flutter and Dart.',
           style: TextStyle(fontSize: 24, color: Colors.white),
           maxLines: 3,
         ),
@@ -77,7 +81,13 @@ class HeaderBody extends StatelessWidget {
               ),
             ),
             color: Theme.of(context).primaryColor,
-            onPressed: () {},
+            onPressed: () {
+              scrollController.animateTo(
+                navigationItems[0].position,
+                duration: Duration(milliseconds: 700),
+                curve: Curves.easeInOut,
+              );
+            },
             child: Padding(
               padding: EdgeInsets.symmetric(
                 vertical: isMobile ?? false ? 10 : 17,

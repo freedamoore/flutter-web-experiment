@@ -15,6 +15,9 @@ final skills = [
 ];
 
 class SkillsView extends StatelessWidget {
+  const SkillsView({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(builder: (_, size) {

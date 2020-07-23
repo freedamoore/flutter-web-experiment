@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_experiment/navigation_bar/navigation_bar_view.dart';
+import 'package:flutter_web_experiment/main.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:provider/provider.dart';
 
 class DrawerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final navigationItems = context.watch<List<NavigationItem>>();
+    final scrollController = context.watch<ScrollController>();
     return ResponsiveBuilder(
       builder: (_, size) {
         if (!size.isMobile) return SizedBox();
@@ -23,13 +26,15 @@ class DrawerView extends StatelessWidget {
                   color: Theme.of(context).accentColor,
                 ),
               ),
-              for (var item in kNavigationItems)
+              for (var item in navigationItems)
                 ListTile(
                   title: Text(item.text),
                   onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
+                    scrollController.animateTo(
+                      item.position,
+                      duration: Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
                     Navigator.pop(context);
                   },
                 ),

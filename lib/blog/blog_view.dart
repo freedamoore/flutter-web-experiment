@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class BlogView extends StatelessWidget {
+  const BlogView({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_experiment/main.dart';
 import 'package:flutter_web_experiment/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:provider/provider.dart';
 
 class NavigationBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final navigationItems = context.watch<List<NavigationItem>>();
+    final scrollController = context.watch<ScrollController>();
     final width = MediaQuery.of(context).size.width;
 
     return ResponsiveBuilder(
@@ -27,8 +31,6 @@ class NavigationBarView extends StatelessWidget {
               ));
         }
 
-        final onPressed = () => print('click');
-
         return Container(
           height: 60,
           width: width,
@@ -38,8 +40,17 @@ class NavigationBarView extends StatelessWidget {
             children: [
               FlutterLogo(colors: Theme.of(context).primaryColor),
               Spacer(),
-              for (var item in kNavigationItems)
-                NavigationBarItem(onPressed: onPressed, text: item.text),
+              for (var item in navigationItems)
+                NavigationBarItem(
+                  onPressed: () {
+                    scrollController.animateTo(
+                      item.position,
+                      duration: Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  text: item.text,
+                ),
             ],
           ),
         );
@@ -47,18 +58,6 @@ class NavigationBarView extends StatelessWidget {
     );
   }
 }
-
-class NavigationItem {
-  final String text;
-  NavigationItem(this.text);
-}
-
-final kNavigationItems = [
-  NavigationItem('Projects'),
-  NavigationItem('Skills'),
-  // NavigationItem('About Me'),
-  NavigationItem('Blog'),
-];
 
 class NavigationBarItem extends StatelessWidget {
   const NavigationBarItem({
