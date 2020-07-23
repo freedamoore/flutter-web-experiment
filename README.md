@@ -1,10 +1,10 @@
 # Flutter Web Experiment
 
-*WORK IN PROGRESS*
-
-With this project I will attempt to build a web page/app without any html, css or JS. Instead I will build it with Google's Flutter framework and the Dart programming language.
+This is my first attempt at building a web page without any html, css or JS. Instead I will build it with Google's Flutter framework and the Dart programming language.
 
 The source code is in the /lib folder
+
+The live webiste is here: https://freedamoore.github.io/flutter-web-experiment/
 
 Make sure to install dependencies in pubspec.yaml file if cloning.
 
@@ -42,3 +42,8 @@ https://flutter.dev/docs/get-started/web
 
 
 https://flutter.dev/docs/get-started/web
+
+## Deployment
+
+1. in the  terminal run `flutter run -d chrome --release`
+2. then `flutter build web` This will create the folder build/web
