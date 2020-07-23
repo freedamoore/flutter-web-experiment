@@ -2,6 +2,7 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_experiment/blog/blog_view.dart';
 import 'package:flutter_web_experiment/drawer/drawer_view.dart';
+import 'package:flutter_web_experiment/footer/footer_view.dart';
 import 'package:flutter_web_experiment/header/header_view.dart';
 import 'package:flutter_web_experiment/navigation_bar/navigation_bar_view.dart';
 import 'package:flutter_web_experiment/project/project_view.dart';
@@ -103,6 +104,7 @@ class _WebViewState extends State<WebView> with AfterLayoutMixin {
               ProjectView(key: projectKey),
               SkillsView(key: skillsKey),
               BlogView(key: blogKey),
+              FooterView(),
             ],
           ),
         ),
